@@ -203,7 +203,7 @@ export class MongoAdapter implements FilteredAdapter, BatchAdapter {
       lines.push(this.deletePolicyLine(ptype, r));
     }
 
-    const promises: Array<Promise<any>> = [];
+    const promises: Promise<any>[] = [];
 
     for (const line of lines) {
       promises.push(this.getCollection().deleteOne(line));
